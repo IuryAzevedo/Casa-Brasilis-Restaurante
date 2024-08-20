@@ -1,0 +1,128 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  nome       String
+  email      String
+  senha      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model ComidaBrasileira {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Massas {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Carnes {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Peixes {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Pizzas {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  tamanho    Int
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Guarnicao {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Entradas {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float?
+  quantidade Int?
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Sobremesa {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  peso       Float?
+  quantidade Int?
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Bebidas {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  litros     Float
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Drinks {
+  id         String   @id @default(uuid())
+  nome       String
+  preco      Float
+  descricao  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Reserva {
+  id         String   @id @default(uuid())
+  nome       String
+  sobrenome  String
+  data       DateTime
+  horario    String
+  numPessoas Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
