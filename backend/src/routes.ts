@@ -8,6 +8,9 @@ import { FishFoodController } from "./Controllers/Peixes/FishFoodController";
 import { PizzaFoodController } from "./Controllers/Pizzas/PizzaFoodController";
 import { GuarnicaoFoodController } from "./Controllers/Guarnicao/GuarnicaoFoodController";
 import { EntryFoodController } from "./Controllers/Entradas/EntryFoodController";
+import { DesertFoodController } from "./Controllers/Sobremesa/DesertFoodController";
+import { BebidasController } from "./Controllers/Bebidas/BebidasController";
+import { DrinksController } from "./Controllers/Drinks/DrinksController";
 
 const router = Router();
 
@@ -21,6 +24,11 @@ router.post('/cadastro-peixes', new FishFoodController().handle)
 router.post("/cadastro-pizzas", new PizzaFoodController().handle)
 router.post("/cadastro-guarnicao", new GuarnicaoFoodController().handle)
 router.post('/cadastro-entradas', new EntryFoodController().handle)
+router.post("/cadastro-sobremesa", new DesertFoodController().handle)
+router.post("/cadastro-bebidas", new BebidasController().handle)
+router.post("/cadastro-drink", new DrinksController().handle)
+
+
 
 //Rotas de GET
 
