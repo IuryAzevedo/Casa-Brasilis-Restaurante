@@ -11,26 +11,33 @@ import { EntryFoodController } from "./Controllers/Entradas/EntryFoodController"
 import { DesertFoodController } from "./Controllers/Sobremesa/DesertFoodController";
 import { BebidasController } from "./Controllers/Bebidas/BebidasController";
 import { DrinksController } from "./Controllers/Drinks/DrinksController";
+import { ReservaController } from "./Controllers/Reserva/ReservaController";
+import { isAuthAuthenticated } from "./Services/middlewares/isAuthAuthenticated";
 
 const router = Router();
 
 // Rotas de POST
 router.post('/cadastro', new CadastroUserController().handle);
 router.post('/login', new LoginUserController().handle);
-router.post('/cadastro-comida-brasileira', new BrazilianFoodController().handle);
-router.post('/cadastro-massas', new PastaFoodController().handle);
-router.post('/cadastro-carnes', new MeatFoodController().handle);
-router.post('/cadastro-peixes', new FishFoodController().handle)
-router.post("/cadastro-pizzas", new PizzaFoodController().handle)
-router.post("/cadastro-guarnicao", new GuarnicaoFoodController().handle)
-router.post('/cadastro-entradas', new EntryFoodController().handle)
-router.post("/cadastro-sobremesa", new DesertFoodController().handle)
-router.post("/cadastro-bebidas", new BebidasController().handle)
-router.post("/cadastro-drink", new DrinksController().handle)
-
+router.post('/cadastro-comida-brasileira', isAuthAuthenticated, new BrazilianFoodController().handle);
+router.post('/cadastro-massas', isAuthAuthenticated, new PastaFoodController().handle);
+router.post('/cadastro-carnes', isAuthAuthenticated, new MeatFoodController().handle);
+router.post('/cadastro-peixes', isAuthAuthenticated, new FishFoodController().handle);
+router.post("/cadastro-pizzas", isAuthAuthenticated, new PizzaFoodController().handle);
+router.post("/cadastro-guarnicao", isAuthAuthenticated, new GuarnicaoFoodController().handle);
+router.post('/cadastro-entradas', isAuthAuthenticated, new EntryFoodController().handle);
+router.post("/cadastro-sobremesa", isAuthAuthenticated, new DesertFoodController().handle);
+router.post("/cadastro-bebidas", isAuthAuthenticated, new BebidasController().handle);
+router.post("/cadastro-drink", isAuthAuthenticated, new DrinksController().handle);
+router.post('/cadastro-reserva', isAuthAuthenticated, new ReservaController().handle);
 
 
 //Rotas de GET
+
+
+
+
+
 
 //Rotas de UPDATE
 
