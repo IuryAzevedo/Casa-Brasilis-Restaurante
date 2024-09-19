@@ -7,7 +7,7 @@ class BebidasController {
         const bebidaService = new BebidasService()
         try {
             const bebidaData = {nome, preco, litros}
-            const bebidas = bebidaService.execute(bebidaData)
+            const bebidas = await bebidaService.execute(bebidaData)
             console.log("bebida registrada com sucesso");
             return res.status(200).json(bebidas)
         } catch (error) {

@@ -1,4 +1,5 @@
 import { Router } from "express";
+//Create Controllers
 import { CadastroUserController } from "./Controllers/User/CadastroUserController";
 import { LoginUserController } from "./Controllers/User/LoginUserController";
 import { BrazilianFoodController } from "./Controllers/ComidasBrasileiras/BrazilianFoodController";
@@ -12,7 +13,24 @@ import { DesertFoodController } from "./Controllers/Sobremesa/DesertFoodControll
 import { BebidasController } from "./Controllers/Bebidas/BebidasController";
 import { DrinksController } from "./Controllers/Drinks/DrinksController";
 import { ReservaController } from "./Controllers/Reserva/ReservaController";
+
+//List Controllers
 import { isAuthAuthenticated } from "./Services/middlewares/isAuthAuthenticated";
+import { ListBebidasController } from "./Controllers/Bebidas/ListBebidasController";
+import { ListMeatController } from "./Controllers/Carnes/ListMeatController";
+import { ListBrazilianFoodController } from "./Controllers/ComidasBrasileiras/ListBrazilianFoodController";
+import { ListDrinksController } from "./Controllers/Drinks/ListDrinksController";
+import { ListEntrysController } from "./Controllers/Entradas/ListEntrysController";
+import { ListGuarnicaoController } from "./Controllers/Guarnicao/ListGuarnicaoController";
+import { ListPastaController } from "./Controllers/Massas/ListPastaController";
+import { ListFishController } from "./Controllers/Peixes/ListFishController";
+import { ListPizzaController } from "./Controllers/Pizzas/ListPizzaController";
+import { ListReservaController } from "./Controllers/Reserva/ListReservaController";
+import { ListDesertController } from "./Controllers/Sobremesa/ListDesertController";
+import { UpdateBebidasController } from "./Controllers/Bebidas/UpdateBebidasController";
+import { UpdateBrazilianFoodController } from "./Controllers/ComidasBrasileiras/UpdateBrazilianFoodController";
+import { UpdateDrinksController } from "./Controllers/Drinks/UpdateDrinksController";
+import { UpdateEntryController } from "./Controllers/Entradas/UpdateEntryController";
 
 const router = Router();
 
@@ -33,14 +51,27 @@ router.post('/cadastro-reserva', isAuthAuthenticated, new ReservaController().ha
 
 
 //Rotas de GET
-
-
-
-
+router.get("/list-bebidas", isAuthAuthenticated, new ListBebidasController().handle)
+router.get("/list-carnes", isAuthAuthenticated, new ListMeatController().handle)
+router.get('/list-comidas-brasileiras', isAuthAuthenticated, new ListBrazilianFoodController().handle)
+router.get('list-drinks', isAuthAuthenticated, new ListDrinksController().handle)
+router.get('/list-entradas', isAuthAuthenticated, new ListEntrysController().handle)
+router.get('list-guarnicao', isAuthAuthenticated, new ListGuarnicaoController().handle)
+router.get('/list-massas', isAuthAuthenticated, new ListPastaController().handle);
+router.get('/list-peixes', isAuthAuthenticated, new ListFishController().handle);
+router.get("/list-pizzas", isAuthAuthenticated, new ListPizzaController().handle);
+router.get('/list-reservas', isAuthAuthenticated, new ListReservaController().handle);
+router.get('/list-sobremesas', isAuthAuthenticated, new ListDesertController().handle);
 
 
 //Rotas de UPDATE
+router.put('edit-bebidas', isAuthAuthenticated, new UpdateBebidasController().handle)
+router.put('/edit-comida-brasileira', isAuthAuthenticated, new UpdateBrazilianFoodController().handle)
+router.put('edit-drinks', isAuthAuthenticated, new UpdateDrinksController().handle);
+router.put('edit-entradas', isAuthAuthenticated, new UpdateEntryController().handle);
+
 
 //Rotas de DELETE
+
 
 export {router}
