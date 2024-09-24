@@ -4,10 +4,13 @@ import { UpdateBrazilianFoodService } from "../../Services/ComidasBrasileiras/Up
 
 class UpdateBrazilianFoodController {
     async handle(req: Request, res: Response){
-        const {id} = req.params
-        const {nome, preco, peso, descricao} = req.body
+        // const {id} = req.query
+        // console.log(req.query);
+        const {id, nome, preco, peso, descricao} = req.body
         const updateBrazilianService = new UpdateBrazilianFoodService()
+        console.log('id', id);
         try {
+            // console.log(id);
             const updateBrazilian = await updateBrazilianService.execute({
                 id: String(id),
                 nome, preco, peso, descricao

@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { ListBebidasService } from "../../Services/Bebidas/ListBebidasService";
 import { ListBrazilianFoodService } from "../../Services/ComidasBrasileiras/ListBrazilianFood";
 
 class ListBrazilianFoodController {
