@@ -37,6 +37,12 @@ import { UpdateFishController } from './Controllers/Peixes/UpdateFishController'
 import { UpdatePizzaController } from './Controllers/Pizzas/UpdatePizzaController';
 import { UpdateReservaController } from './Controllers/Reserva/UpdateReservaController';
 import { UpdateDesertController } from './Controllers/Sobremesa/UpdateDesertController';
+import { DeleteBebidasController } from './Controllers/Bebidas/DeleteBebidasController';
+import { DeleteMeatController } from './Controllers/Carnes/DeleteMeatController';
+import { DeleteBrazilianFoodController } from './Controllers/ComidasBrasileiras/DeleteBrazilianFoodController';
+import { DeleteDrinksController } from './Controllers/Drinks/DeleteDrinksController';
+import { DeleteEntryController } from './Controllers/Entradas/DeleteEntryController';
+import { DeleteGuarnicaoController } from './Controllers/Guarnicao/DeleteGuarnicaoController';
 
 const router = Router();
 
@@ -81,5 +87,11 @@ router.put('/edit-reserva', isAuthAuthenticated, new UpdateReservaController().h
 router.put('/edit-sobremesa', isAuthAuthenticated, new UpdateDesertController().handle);
 
 //Rotas de DELETE
+router.delete('/delete-bebida', isAuthAuthenticated, new DeleteBebidasController().handle);
+router.delete('/delete-carne', isAuthAuthenticated, new DeleteMeatController().handle);
+router.delete('/delete-comida-brasileira', isAuthAuthenticated, new DeleteBrazilianFoodController().handle);
+router.delete('/delete-drink', isAuthAuthenticated, new DeleteDrinksController().handle);
+router.delete('/delete-entrada', isAuthAuthenticated, new DeleteEntryController().handle);
+router.delete('/delete-guarnicao', isAuthAuthenticated, new DeleteGuarnicaoController().handle);
 
 export { router };
